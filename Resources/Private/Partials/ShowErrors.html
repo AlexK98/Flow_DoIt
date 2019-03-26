@@ -1,0 +1,20 @@
+<f:validation.results for="{for}">
+	<f:if condition="{validationResults.flattenedErrors}">
+		<div style="width: 100%; padding: 5px 10px; background-color:rgb(240, 240, 240);"> </div>
+		<div style="width: 100%; padding: 10px; color: crimson; background-color: rgba(220, 20, 60, 0.137)">
+            <b>ERRORS</b>: <br>
+			<f:for each="{validationResults.flattenedErrors}" key="propertyName" as="errors">
+                <div style="margin-top: 5px; margin-left: 15px;">
+				    <b>{propertyName -> f:format.case(mode: 'capitalWords')}</b>:
+                </div>
+                <div>
+                    <ul style="margin: 3px;">
+                    <f:for each="{errors}" as="error">
+                        <li>{error}</li>
+                    </f:for>
+                    </ul>
+                </div>
+			</f:for>
+		</div>
+	</f:if>
+</f:validation.results>

@@ -1,0 +1,28 @@
+{
+    "description": "Ludicrously simple ToDo application based on Neos/Flow framework",
+    "type": "neos-package",
+    "name": "toko/doit",
+    "keywords": ["Neos", "Flow"],
+    "homepage": "https://github.com/AlexK98/Flow_DoIt",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Oleksandr Kot",
+            "homepage": "https://github.com/AlexK98",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "neos/flow": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Toko\\Doit\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Toko.Doit"
+        }
+    }
+}

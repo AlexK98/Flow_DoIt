@@ -1,0 +1,6 @@
+<f:if condition="{task.state} == 'Active'">
+	<f:form.button style="padding: 5px 10px;" formaction="update" title="Mark task as Completed" property="state" value="Completed">Complete</f:form.button>
+</f:if>
+<f:if condition="{task.state} == 'Completed'">
+	<f:form.button style="padding: 5px 10px;" formaction="update" title="Mark task as Active" property="state" value="Active">Reset</f:form.button>
+</f:if>

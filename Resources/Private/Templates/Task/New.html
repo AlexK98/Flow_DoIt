@@ -1,0 +1,21 @@
+<f:layout name="Default" />
+
+<f:section name="Title">New task</f:section>
+
+<f:section name="Content">
+	<div style="width: 33%;">
+		<div style="padding: 10px; width: 100%; background-color:rgb(248, 248, 248);">Please, fill out the form below to create a new task:</div>
+		<div style="width: 100%; padding: 5px 10px; background-color:rgb(240, 240, 240);"> </div>
+		<f:form action="create" objectName="newTask" style="display: inline;">
+			<f:render partial="Form\TaskDescription" arguments="{task: task}"/>
+			<f:render partial="Spacer"/>
+			<f:form.hidden property="state" value="Active" />
+			<div style="padding: 10px; width: 100%; background-color:lightgreen;">
+				<f:render partial="Buttons\CreateTask" arguments="{task: task}"/>
+				<f:form.button style="padding: 5px 10px;" type="reset" title="Click to clear the form">Clear Form</f:form.button>
+				<f:render partial="Buttons\GoHome"/>
+			</div>
+		</f:form>
+		<f:render partial="ShowErrors" arguments="{for: 'newTask'}" />
+	</div>
+</f:section>

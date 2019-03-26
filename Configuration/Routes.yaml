@@ -1,0 +1,18 @@
+##
+# DoIt subroutes
+
+-
+  name: 'Root'
+  uriPattern: ''
+  defaults:
+    '@package':    'Toko.Doit'
+    '@controller': 'Task'
+    '@action':     'index'
+    '@format':     'html'
+
+-
+  name: 'Dynamic Routes'
+  uriPattern: '{@action}'
+  defaults:
+    '@package':    'Toko.Doit'
+    '@controller': 'Task'
