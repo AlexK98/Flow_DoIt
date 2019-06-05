@@ -8,13 +8,16 @@ namespace Toko\Doit\Controller;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Mvc\Controller\ActionController;
 use Toko\Doit\Domain\Model\Task;
+use Toko\Doit\Domain\Repository\TaskRepository;
+use Neos\Flow\Mvc\Exception\StopActionException;
+use Neos\Flow\Mvc\Exception\UnsupportedRequestTypeException;
+use Neos\Flow\Persistence\Exception\IllegalObjectTypeException;
 
 class TaskController extends ActionController
 {
-
     /**
      * @Flow\Inject
-     * @var \Toko\Doit\Domain\Repository\TaskRepository
+     * @var TaskRepository
      */
     protected $taskRepository;
 
@@ -27,7 +30,7 @@ class TaskController extends ActionController
     }
 
     /**
-     * @param \Toko\Doit\Domain\Model\Task $task
+     * @param Task $task
      * @return void
      */
     public function showAction(Task $task)
@@ -38,13 +41,14 @@ class TaskController extends ActionController
     /**
      * @return void
      */
-    public function newAction()
-    {
-    }
+    public function newAction() { }
 
     /**
-     * @param \Toko\Doit\Domain\Model\Task $newTask
+     * @param Task $newTask
      * @return void
+     * @throws StopActionException
+     * @throws UnsupportedRequestTypeException
+     * @throws IllegalObjectTypeException
      */
     public function createAction(Task $newTask)
     {
@@ -53,7 +57,7 @@ class TaskController extends ActionController
     }
 
     /**
-     * @param \Toko\Doit\Domain\Model\Task $task
+     * @param Task $task
      * @return void
      */
     public function editAction(Task $task)
@@ -62,8 +66,11 @@ class TaskController extends ActionController
     }
 
     /**
-     * @param \Toko\Doit\Domain\Model\Task $task
+     * @param Task $task
      * @return void
+     * @throws StopActionException
+     * @throws UnsupportedRequestTypeException
+     * @throws IllegalObjectTypeException
      */
     public function updateAction(Task $task)
     {
@@ -72,8 +79,11 @@ class TaskController extends ActionController
     }
 
     /**
-     * @param \Toko\Doit\Domain\Model\Task $task
+     * @param Task $task
      * @return void
+     * @throws StopActionException
+     * @throws UnsupportedRequestTypeException
+     * @throws IllegalObjectTypeException
      */
     public function deleteAction(Task $task)
     {
@@ -81,6 +91,10 @@ class TaskController extends ActionController
         $this->redirectToUri('/');
 	}
 
+    /**
+     * @throws StopActionException
+     * @throws UnsupportedRequestTypeException
+     */
     public function homeAction()
     {
         $this->redirectToUri('/');
