@@ -1,11 +1,8 @@
-# Copy to root 'Configuration' folder
-
 ##
 # DoIt subroutes
-
 -
-  name: 'Root'
-  uriPattern: ''
+  name: 'Static Route'
+  uriPattern: 'doit'
   defaults:
     '@package':    'Toko.Doit'
     '@controller': 'Task'
@@ -14,7 +11,8 @@
 
 -
   name: 'Dynamic Routes'
-  uriPattern: '{@action}'
+  uriPattern: 'doit/{@action}'
   defaults:
     '@package':    'Toko.Doit'
     '@controller': 'Task'
+    '@format':     'html'

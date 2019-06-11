@@ -3,4 +3,4 @@ Neos:
     mvc:
       routes:
         'Toko.Doit':
-          position: 'start'
+          position: 2
