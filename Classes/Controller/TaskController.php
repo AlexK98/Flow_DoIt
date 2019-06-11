@@ -47,13 +47,13 @@ class TaskController extends ActionController
      * @param Task $newTask
      * @return void
      * @throws StopActionException
-     * @throws UnsupportedRequestTypeException
      * @throws IllegalObjectTypeException
+	 * @throws UnsupportedRequestTypeException
      */
     public function createAction(Task $newTask)
     {
         $this->taskRepository->add($newTask);
-        $this->redirectToUri('/');
+        $this->homeAction();
     }
 
     /**
@@ -69,13 +69,13 @@ class TaskController extends ActionController
      * @param Task $task
      * @return void
      * @throws StopActionException
-     * @throws UnsupportedRequestTypeException
      * @throws IllegalObjectTypeException
-     */
+	 * @throws UnsupportedRequestTypeException
+	 */
     public function updateAction(Task $task)
     {
         $this->taskRepository->update($task);
-        $this->redirectToUri('/');
+        $this->homeAction();
     }
 
     /**
@@ -88,7 +88,7 @@ class TaskController extends ActionController
     public function deleteAction(Task $task)
     {
         $this->taskRepository->remove($task);
-        $this->redirectToUri('/');
+        $this->homeAction();
 	}
 
     /**
@@ -97,6 +97,6 @@ class TaskController extends ActionController
      */
     public function homeAction()
     {
-        $this->redirectToUri('/');
+        $this->redirectToUri('/doit');
     }
 }
